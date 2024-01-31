@@ -1,0 +1,10 @@
+{
+    "loginTitle": "Sign in",
+    "loginAbout":"Please login or contact the admin",
+    "emailAddress": "Email:",
+    "emailPlaceholder": "example@example.com",
+    "password": "Password:",
+    "passPlaceholder":"123",
+    "submit": "Sign in",
+    "userNotfound": "Email or password is incorrect please try again"
+}
