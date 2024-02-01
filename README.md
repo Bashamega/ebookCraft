@@ -1,38 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ebook craft <Span style="font-size:15px; border:green 2px solid ; border-radius:5px">BETA</span>
 
-## Getting Started
+## About
+Ebook craft is an amazing way to create a fully customizable E-book using HTML and CSS. Also, you don't need to worry about the functionality, because Ebook Craft got you covered, and in the final version you can add more tools without coding!
 
-First, run the development server:
+## Getting started
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+There is two ways to get started the first way is by cloning the repository and the other way is by click this <a href="https://github.com/Bashamega/ebookCraft/archive/refs/heads/master.zip"> dowanload zip link</a>.  
+
+### Follow these steps to set it up locally
+1. Click on the use template button and create a new repository then follow the Github instructions	.
+2. open the terminal and run:
 ```
+git clone https://github.com/username/ebookCraft
+```
+3.  Navigate to the directory:
+```
+cd ebookCraft
+```
+4. Install the packages
+```
+npm i
+```
+or
+```
+yarn add
+```
+5. Start the port
+```
+npm run dev
+```
+And you are all done!
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Setting up the e-book preferences
+First open the project and go to the `settings.json` in the `src/pages/setting`  folder, there you will find all the settings needed for the E-book.
+Then you can jump to the `language.json` file to edit the words to suit you.
+At last you can jump into the `customize.sass` file to edit the colors.
+And this is how you can set up the repo
+<div style="borderred 1px solid; border-radius:10px;">
+<h3>Warning</h3>
+<p>Do not delete any variable of item in the files it can cause damage the the ebook.</p>
+</div>
