@@ -58,6 +58,7 @@ body
                 color: $login-button-color
                 &:hover
                     background:  lighten($login-button-bg, 10%)
+        
         #error
             background: $login-error-bg
             color: $login-error-color
@@ -89,7 +90,7 @@ body
             align-items: center    
             animation: slideInFromBottom 1.0s ease-out 
             span
-
+                border: 0
                 width: 15%
                 position: absolute
                 cursor: pointer
@@ -98,6 +99,11 @@ body
                 border-radius: 50px
                 &:hover
                     background: white
+            .disabled
+                opacity: 20%
+                cursor: auto
+                &:hover
+                    background: none
             #back
                 right: 0
             #forward
