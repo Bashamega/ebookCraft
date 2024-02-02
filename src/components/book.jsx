@@ -12,7 +12,8 @@ export function Book() {
     setCurrentPage(pages[current-1])
     console.log(pages)
     console.log(pages.length)
-    const pagePath = `/pages/${currentPage}`;
+    if(currentPage){
+      const pagePath = `/pages/${currentPage}`;
     fetch(pagePath)
       .then((response) => response.text())
       .then((data) => setPageContent(data))
@@ -31,6 +32,8 @@ export function Book() {
         document.getElementById('forward').classList.remove('disabled')
 
         break;
+    }
+    
     }
   }, [currentPage, current, pages]);
   useEffect(()=>{
