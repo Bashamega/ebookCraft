@@ -35,8 +35,7 @@ export function Book() {
   }, [currentPage, current, pages]);
   useEffect(()=>{
     fetch("/api/pagesRender").then(res=>res.json()).then(data=>setpages(data))
-  }
-  )
+  }, [])
   return (
     <main id="book">
       <iframe title="book-page" srcDoc={pageContent}></iframe>
