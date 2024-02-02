@@ -2,5 +2,6 @@
     "title": "Ebook craft example",
     "author": "Basha",
     "icon":"",
-    "credentials": false
+    "credentials": false,
+    "pageSaver": true
 }
