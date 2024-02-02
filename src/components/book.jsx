@@ -37,17 +37,35 @@ export function Book() {
     }
   }, [currentPage, current, pages]);
   useEffect(()=>{
+    
+    if(settings.pageSaver){
+      if(localStorage.getItem(settings.title + "_pagesaver") !== null){
+        const page = parseInt(localStorage.getItem(settings.title + "_pagesaver"))
+        setCurrent(page)
+
+      }
+    }
     fetch("/api/pagesRender").then(res=>res.json()).then(data=>setpages(data))
   }, [])
+  const back = ()=>{
+    if(!document.getElementById('back').classList.contains('disabled')) {
+      setCurrent((prevCurrent) => prevCurrent - 1);
+      localStorage.setItem(settings.title + "_pagesaver", current - 1)
+
+    }
+    
+  }
+  const forward = ()=>{
+    if(!document.getElementById('forward').classList.contains('disabled')) {
+      setCurrent((prevCurrent) => prevCurrent + 1);
+      localStorage.setItem(settings.title + "_pagesaver", current + 1)
+    }
+  }
   return (
     <main id="book">
       <iframe title="book-page" srcDoc={pageContent}></iframe>
       <footer>
-        <span id="forward" onClick={(e) => {
-          if(!document.getElementById('forward').classList.contains('disabled')) {
-            setCurrent((prevCurrent) => prevCurrent + 1);
-          }
-        }}>
+        <span id="forward" onClick={forward}>
           <BiChevronLeft />
         </span>
         <div>
@@ -55,11 +73,7 @@ export function Book() {
         <p>Created by {settings.author}</p>
         <p>{pages.length}/{current}</p>
         </div>
-        <span id="back" onClick={() => {
-          if(!document.getElementById('back').classList.contains('disabled')) {
-            setCurrent((prevCurrent) => prevCurrent - 1);
-          }
-        }}>
+        <span id="back" onClick={back}>
           <BiChevronRight />
         </span>
       </footer>
