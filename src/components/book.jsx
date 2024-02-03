@@ -71,7 +71,16 @@ export function Book() {
         <div>
         <h2 onClick={() => setCurrentPage('default.html')}>{settings.title}</h2>
         <p>Created by {settings.author}</p>
-        <p>{pages.length}/{current}</p>
+        <p>{pages.length}/
+        <input type="number" min="1" max={pages.length} onChange={(e)=>{
+          if(e.target.value <= 0 || e.target.value > pages.length){
+            e.target.classList.add('error')
+          }else{
+            e.target.classList.remove('error')
+            setCurrent(e.target.value)
+          }
+        }} value={current} style={{width: '50px'}}></input>
+        </p>
         </div>
         <span id="back" onClick={back}>
           <BiChevronRight />
