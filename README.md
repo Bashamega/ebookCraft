@@ -5,7 +5,7 @@ Ebook craft is an amazing way to create a fully customizable E-book using HTML a
 
 ## Getting started
 
-There is two ways to get started the first way is by cloning the repository and the other way is by click this <a href="https://github.com/Bashamega/ebookCraft/archive/refs/heads/master.zip"> dowanload zip link</a>.  
+There is two ways to get started the first way is by cloning the repository and the other way is by click this <a href="https://github.com/Bashamega/ebookCraft/archive/refs/heads/master.zip"> download zip link</a>.  
 
 ### Follow these steps to set it up locally
 1. Click on the use template button and create a new repository then follow the Github instructions	.
