@@ -13,7 +13,7 @@ How It Works
 
 E-Book Craft leverages the power of HTML and CSS, the building blocks of the web, to give you unparalleled control over the layout and design of your eBooks. Whether you're looking to create a simple text-based eBook or a complex interactive digital publication, our tool provides the flexibility you need. And the best part? You can add more tools and features to your eBook without any coding required.
 
-Features and Benefits
+## Features and Benefits
 
 Customizable Designs: 
 
