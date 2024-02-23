@@ -9,7 +9,7 @@ Our Mission
 
 Our mission is to democratize the creation of eBooks by making it accessible to everyone, regardless of their technical background. We believe in empowering creators with a tool that combines the flexibility of HTML and CSS with the simplicity of a user-friendly interface. This allows for the creation of professional-quality eBooks that stand out in the digital world.
 
-How It Works
+## How It Works
 
 E-Book Craft leverages the power of HTML and CSS, the building blocks of the web, to give you unparalleled control over the layout and design of your eBooks. Whether you're looking to create a simple text-based eBook or a complex interactive digital publication, our tool provides the flexibility you need. And the best part? You can add more tools and features to your eBook without any coding required.
 
