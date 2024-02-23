@@ -23,7 +23,7 @@ Customizable Designs:
 - User-Friendly Interface: Our platform is designed with ease of use in mind, making eBook creation accessible to creators of all skill levels.
 - Continuous Updates and Support: We're constantly updating eBook Craft with new features and tools to keep up with the evolving needs of eBook creators. Our support team is always on hand to help you with any questions or issues.
 
-Join Our Community
+## Join Our Community
 
 At eBook Craft, we're more than just a tool; we're a community of passionate creators who believe in the power of digital publishing. Whether you're publishing your first eBook or your hundredth, we're here to support you every step of the way. Join us and start creating eBooks that captivate, inform, and inspire.
 
