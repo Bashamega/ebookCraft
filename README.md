@@ -1,6 +1,5 @@
 # Ebook craft <Span style="font-size:15px; border:green 2px solid ; border-radius:5px">BETA</span>
 
-## About
 About Us
 
 Welcome to eBook Craft, your ultimate solution for crafting beautiful, customizable eBooks. Born from the vision of simplifying the eBook creation process, our tool is designed for writers, educators, publishers, and anyone in between who dreams of bringing their digital content to life in the form of an eBook.
