@@ -3,5 +3,7 @@
     "author": "Basha",
     "icon":"",
     "credentials": false,
-    "pageSaver": true
+    "pageSaver": true,
+    "tableOfContents": true
+
 }
