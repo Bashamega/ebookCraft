@@ -87,17 +87,14 @@ body
             background-color: rgba(255, 255, 255, 0.5)
             border-radius: 50px
             display: flex
-            justify-content: center
-            align-items: center    
+            justify-content: space-between
+            align-items: center
             animation: slideInFromBottom 1.0s ease-out 
             span
-                border: 0
-                width: 15%
-                position: absolute
-                cursor: pointer
                 padding: 2%
+                border-radius: 3vw
                 font-size: 50px
-                border-radius: 50px
+                cursor: pointer
                 &:hover
                     background: white
             .disabled
@@ -105,10 +102,6 @@ body
                 cursor: auto
                 &:hover
                     background: none
-            #back
-                right: 0
-            #forward
-                left:0
 .error
     border-color: red
     color: red
