@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BiChevronLeft } from "react-icons/bi";
 import { BiChevronRight } from "react-icons/bi";
+import { GiHamburgerMenu } from "react-icons/gi";
 import settings from "@/setting/settings.json";
 
 export function Book() {
@@ -8,6 +9,7 @@ export function Book() {
   const [pageContent, setPageContent] = useState("");
   const [current, setCurrent] = useState(1)
   const [pages, setpages] = useState([])
+  const [humburgerMenu, setHumburgerMenu] = useState(settings.tableOfContents)
   useEffect(() => {
     setCurrentPage(pages[current-1])
     console.log(pages)
@@ -63,6 +65,22 @@ export function Book() {
   }
   return (
     <main id="book">
+      <header>
+        <a>{settings.title}</a>
+        <div className={humburgerMenu ? "show-menu" : "hide-menu"}>
+          {
+            pages.map((page, index) => {
+              return <a key={index} onClick={()=>setCurrent(index+1)}>{page}</a>
+            })
+          }
+         
+        </div>
+        <a id="humburger-icon" onClick={() => {
+          setHumburgerMenu(!humburgerMenu)
+        }}>
+          <GiHamburgerMenu />
+        </a>
+      </header>
       <iframe title="book-page" srcDoc={pageContent}></iframe>
       <footer>
         <span id="forward" onClick={forward}>
@@ -72,12 +90,13 @@ export function Book() {
         <h2 onClick={() => setCurrentPage('default.html')}>{settings.title}</h2>
         <p>Created by {settings.author}</p>
         <p>{pages.length}/
-        <input type="number" min="1" max={pages.length} onChange={(e)=>{
-          if(e.target.value <= 0 || e.target.value > pages.length){
+            <input type="number" min="1" max={pages.length} onChange={(e) => {
+              const pageNo = parseInt(e.target.value)
+          if(pageNo <= 0 || pageNo > pages.length){
             e.target.classList.add('error')
           }else{
             e.target.classList.remove('error')
-            setCurrent(e.target.value)
+            setCurrent(pageNo)
           }
         }} value={current} style={{width: '50px'}}></input>
         </p>
