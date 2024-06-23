@@ -1,0 +1,67 @@
+/* src/styles/Book.module.css */
+
+/* Define keyframes for slide animations */
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideOutToRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Apply animation to the iframe */
+.iframeContainer {
+  position: relative;
+}
+
+.iframeSlideInLeft {
+  animation: slideInFromLeft 0.5s forwards;
+}
+
+.iframeSlideInRight {
+  animation: slideInFromRight 0.5s forwards;
+}
+
+.iframeSlideOutLeft {
+  animation: slideOutToLeft 0.5s forwards;
+}
+
+.iframeSlideOutRight {
+  animation: slideOutToRight 0.5s forwards;
+}

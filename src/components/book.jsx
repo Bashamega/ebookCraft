@@ -1,88 +1,110 @@
 import React, { useState, useEffect } from "react";
-import { BiChevronLeft } from "react-icons/bi";
-import { BiChevronRight } from "react-icons/bi";
+import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import settings from "@/setting/settings.json";
+import styles from "../styles/Book.module.css";
 
 export function Book() {
   const [currentPage, setCurrentPage] = useState("default.html");
   const [pageContent, setPageContent] = useState("");
-  const [current, setCurrent] = useState(1)
-  const [pages, setpages] = useState([])
+  const [current, setCurrent] = useState(1);
+  const [pages, setPages] = useState([]);
+  const [animationClass, setAnimationClass] = useState("");
+
   useEffect(() => {
-    setCurrentPage(pages[current-1])
-    console.log(pages)
-    console.log(pages.length)
-    if(currentPage){
+    setCurrentPage(pages[current - 1]);
+    console.log(pages);
+    console.log(pages.length);
+    if (currentPage) {
       const pagePath = `/pages/${currentPage}`;
-    fetch(pagePath)
-      .then((response) => response.text())
-      .then((data) => setPageContent(data))
-      .catch((error) => console.error("Error fetching page content:", error));
-    switch (current) {
-      case 1:
-        document.getElementById('back').classList.add('disabled')
-        document.getElementById('forward').classList.remove('disabled')
-        break;
-      case pages.length:
-        document.getElementById('forward').classList.add('disabled')
-        document.getElementById('back').classList.remove('disabled')
-        break;
-      default:
-        document.getElementById('back').classList.remove('disabled')
-        document.getElementById('forward').classList.remove('disabled')
+      fetch(pagePath)
+        .then((response) => response.text())
+        .then((data) => setPageContent(data))
+        .catch((error) => console.error("Error fetching page content:", error));
 
-        break;
-    }
-    
-    }
-  }, [currentPage, current, pages]);
-  useEffect(()=>{
-    
-    if(settings.pageSaver){
-      if(localStorage.getItem(settings.title + "_pagesaver") !== null){
-        const page = parseInt(localStorage.getItem(settings.title + "_pagesaver"))
-        setCurrent(page)
-
+      switch (current) {
+        case 1:
+          document.getElementById("back").classList.add("disabled");
+          document.getElementById("forward").classList.remove("disabled");
+          break;
+        case pages.length:
+          document.getElementById("forward").classList.add("disabled");
+          document.getElementById("back").classList.remove("disabled");
+          break;
+        default:
+          document.getElementById("back").classList.remove("disabled");
+          document.getElementById("forward").classList.remove("disabled");
+          break;
       }
     }
-    fetch("/api/pagesRender").then(res=>res.json()).then(data=>setpages(data))
-  }, [])
-  const back = ()=>{
-    if(!document.getElementById('back').classList.contains('disabled')) {
-      setCurrent((prevCurrent) => prevCurrent - 1);
-      localStorage.setItem(settings.title + "_pagesaver", current - 1)
+  }, [currentPage, current, pages]);
 
+  useEffect(() => {
+    if (settings.pageSaver) {
+      if (localStorage.getItem(settings.title + "_pagesaver") !== null) {
+        const page = parseInt(localStorage.getItem(settings.title + "_pagesaver"));
+        setCurrent(page);
+      }
     }
-    
-  }
-  const forward = ()=>{
-    if(!document.getElementById('forward').classList.contains('disabled')) {
-      setCurrent((prevCurrent) => prevCurrent + 1);
-      localStorage.setItem(settings.title + "_pagesaver", current + 1)
+    fetch("/api/pagesRender")
+      .then((res) => res.json())
+      .then((data) => setPages(data));
+  }, []);
+
+  const back = () => {
+    if (!document.getElementById("back").classList.contains("disabled")) {
+      setAnimationClass(styles.iframeSlideOutRight);
+      setTimeout(() => {
+        setCurrent((prevCurrent) => prevCurrent - 1);
+        localStorage.setItem(settings.title + "_pagesaver", current - 1);
+        setAnimationClass(styles.iframeSlideInLeft);
+      }, 500);
     }
-  }
+  };
+
+  const forward = () => {
+    if (!document.getElementById("forward").classList.contains("disabled")) {
+      setAnimationClass(styles.iframeSlideOutLeft);
+      setTimeout(() => {
+        setCurrent((prevCurrent) => prevCurrent + 1);
+        localStorage.setItem(settings.title + "_pagesaver", current + 1);
+        setAnimationClass(styles.iframeSlideInRight);
+      }, 500);
+    }
+  };
+
   return (
     <main id="book">
-      <iframe title="book-page" srcDoc={pageContent}></iframe>
+      <div className={`${styles.iframeContainer} ${animationClass}`}>
+        <iframe title="book-page" srcDoc={pageContent}></iframe>
+      </div>
       <footer>
-        <span id="forward" onClick={forward}>
+        <span id="back" onClick={back}>
           <BiChevronLeft />
         </span>
         <div>
-        <h2 onClick={() => setCurrentPage('default.html')}>{settings.title}</h2>
-        <p>Created by {settings.author}</p>
-        <p>{pages.length}/
-        <input type="number" min="1" max={pages.length} onChange={(e)=>{
-          if(e.target.value <= 0 || e.target.value > pages.length){
-            e.target.classList.add('error')
-          }else{
-            e.target.classList.remove('error')
-            setCurrent(e.target.value)
-          }
-        }} value={current} style={{width: '50px'}}></input>
-        </p>
+          <h2 onClick={() => setCurrentPage("default.html")}>{settings.title}</h2>
+          <p>Created by {settings.author}</p>
+          <p>
+            {pages.length}/
+            <input
+              type="number"
+              min="1"
+              max={pages.length}
+              onChange={(e) => {
+                const newValue = parseInt(e.target.value);
+                if (newValue <= 0 || newValue > pages.length) {
+                  e.target.classList.add("error");
+                } else {
+                  e.target.classList.remove("error");
+                  setCurrent(newValue);
+                }
+              }}
+              value={current}
+              style={{ width: "50px" }}
+            ></input>
+          </p>
         </div>
-        <span id="back" onClick={back}>
+        <span id="forward" onClick={forward}>
           <BiChevronRight />
         </span>
       </footer>
