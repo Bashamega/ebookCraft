@@ -1,18 +1,18 @@
+import { Html, Head, Main, NextScript } from 'next/document';
+const settings = require('@/setting/settings.json');
 
-import { Html, Head, Main, NextScript } from 'next/document'
-const settings = require('@/setting/settings.json')
 export default function Document() {
   return (
     <Html lang="en">
-      <head>
+      <Head>
         <title>{settings.title}</title>
         <link rel='icon' href={settings.icon}></link>
-        </head>
-      <Head/>
+        <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+      </Head>
       <body>
         <Main />
         <NextScript />
       </body>
     </Html>
-  )
+  );
 }

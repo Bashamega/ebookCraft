@@ -1,16 +1,16 @@
 @import "../setting/customization"
 @keyframes slideInFromBottom
-  0%
-    transform: translateY(100%)
-    opacity: 0
-  100%
-    transform: translateY(0)
-    opacity: 1
-* 
+    0%
+        transform: translateY(100%)
+        opacity: 0
+    100%
+        transform: translateY(0)
+        opacity: 1
+*
     margin: 0
     padding: 0
 body
-    overflow: hidden
+    overflow: visible
 #ebookcraft
     display: flex
     justify-content: center
@@ -26,19 +26,19 @@ body
     #login
         padding: 20px
         border-radius: 10px
-        background-color: $login-form-bg  
+        background-color: $login-form-bg
         width: $login-form-width
-        height:$login-form-height     
+        height: $login-form-height
         display: block
         #loginTitle
-            color:$login-title-color
+            color: $login-title-color
         #loginAbout
-            color:$login-about-color
+            color: $login-about-color
         label
-            color:$login-form-label-color
-        
+            color: $login-form-label-color
+
         input
-            margin-top:5%
+            margin-top: 5%
             margin-bottom: 2%
             width: 100%
             color: $login-form-input-color
@@ -48,24 +48,23 @@ body
             font-size: $font-size
             border-radius: 5px
             &::placeholder
-                color:$login-form-input-placeholder-color
+                color: $login-form-input-placeholder-color
             &[type='submit']
                 padding: 2%
-                border:0
+                border: 0
                 border-radius: 5px
                 background: $login-button-bg
                 cursor: pointer
                 color: $login-button-color
                 &:hover
-                    background:  lighten($login-button-bg, 10%)
-        
+                    background: lighten($login-button-bg, 10%)
+
         #error
             background: $login-error-bg
             color: $login-error-color
             opacity: 50%
             padding: 2%
             border-radius: 5px
-    
 
     #book
         width: 100vw
@@ -89,7 +88,7 @@ body
             display: flex
             justify-content: space-between
             align-items: center
-            animation: slideInFromBottom 1.0s ease-out 
+            animation: slideInFromBottom 1.0s ease-out
             span
                 padding: 2%
                 border-radius: 3vw
@@ -106,4 +105,3 @@ body
     border-color: red
     color: red
     border: 1px solid red
-    
