@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import React, { useEffect, useState } from "react";
+
 import settings from "@/setting/settings.json";
 import styles from "../styles/Book.module.css";
 
@@ -51,10 +52,10 @@ export function Book() {
   }, []);
 
   const back = () => {
-    if (!document.getElementById("back").classList.contains("disabled")) {
+    if (!document.getElementById("back").classList.contains("disabled") && current > 0) {
       setAnimationClass(styles.iframeSlideOutRight);
+      setCurrent((prevCurrent) => prevCurrent - 1);
       setTimeout(() => {
-        setCurrent((prevCurrent) => prevCurrent - 1);
         localStorage.setItem(settings.title + "_pagesaver", current - 1);
         setAnimationClass(styles.iframeSlideInLeft);
       }, 500);
