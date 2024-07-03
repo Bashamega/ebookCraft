@@ -67,6 +67,7 @@
 }
 
 .notebook {
+   border-radius:15px;
   position: fixed;
   top: 20%;
   left: 20%;
